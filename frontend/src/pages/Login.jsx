@@ -14,7 +14,7 @@ export default function Login({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3001/login', {
+      const response = await axios.post('/api/auth/login', {
         email,
         password
       });

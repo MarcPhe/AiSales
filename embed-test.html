@@ -200,7 +200,7 @@
             
             // Load embed script with your user ID
             var script = document.createElement('script');
-            script.src = 'http://localhost:3001/embed.js?userId=' + userId;
+            script.src = window.location.origin + '/api/embed?userId=' + userId;
             document.head.appendChild(script);
         })();
     </script>

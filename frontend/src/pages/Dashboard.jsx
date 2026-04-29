@@ -27,7 +27,7 @@ export default function Dashboard({ user, onLogout, onShowBusinessProfile, onSho
   const fetchCommunications = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3001/communications', {
+      const response = await axios.get('/api/chat/list', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCommunications(response.data.communications);
@@ -42,7 +42,7 @@ export default function Dashboard({ user, onLogout, onShowBusinessProfile, onSho
 
   const fetchBusinessProfile = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/business-profile', {
+      const response = await axios.get('/api/business/profile', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBusinessProfile(response.data.profile);
@@ -53,7 +53,7 @@ export default function Dashboard({ user, onLogout, onShowBusinessProfile, onSho
 
   const fetchCommunicationDetails = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3001/communications/${id}`, {
+      const response = await axios.get(`/api/chat/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSelectedCommunication(response.data.communication);
@@ -82,7 +82,7 @@ export default function Dashboard({ user, onLogout, onShowBusinessProfile, onSho
 <script>
   (function() {
     var script = document.createElement('script');
-    script.src = 'http://localhost:3001/embed.js?userId=${user.id}';
+    script.src = window.location.origin + '/api/embed?userId=${user.id}';
     document.head.appendChild(script);
   })();
 </script>`;

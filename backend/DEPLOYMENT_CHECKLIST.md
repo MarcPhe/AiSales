@@ -52,7 +52,7 @@ backend/server.js                   # Modified file
 # Should show no import errors
 
 # Option 2: Test with curl/Postman
-curl -X POST http://localhost:3001/message \
+curl -X POST http://localhost:3000/api/chat/message \
   -H "Content-Type: application/json" \
   -d '{"communication_id":"test","message":"What is your pricing?"}'
 

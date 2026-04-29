@@ -26,7 +26,7 @@ export default function ChatWidget({ clientId, userId, onNewMessage }) {
       const tokenPayload = JSON.parse(atob(token.split('.')[1]));
       
       const response = await axios.post(
-        'http://localhost:3001/start-communication',
+        '/api/chat/start',
         { 
           client_id: generatedClientId,
           user_id: tokenPayload.id
@@ -55,7 +55,7 @@ export default function ChatWidget({ clientId, userId, onNewMessage }) {
 
     try {
       const response = await axios.post(
-        'http://localhost:3001/message',
+        '/api/chat/message',
         {
           client_id: generatedClientId,
           communication_id: communicationId,

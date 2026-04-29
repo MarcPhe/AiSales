@@ -96,7 +96,7 @@ JWT_SECRET=your_secret_key_for_jwt
 npm start
 ```
 
-The server will run on `http://localhost:3001`
+When using Vercel Serverless Functions, API routes are available under `/api/*` (for example: `/api/auth/login`).
 
 ## Frontend Setup
 

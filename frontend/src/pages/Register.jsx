@@ -22,7 +22,7 @@ export default function Register({ onRegisterSuccess }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3001/register', {
+      const response = await axios.post('/api/auth/register', {
         email,
         password,
         company_name: companyName

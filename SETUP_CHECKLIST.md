@@ -76,7 +76,7 @@ CREATE TABLE leads (
 ```bash
 npm start
 ```
-✅ Backend should now be running on `http://localhost:3001`
+✅ API routes should be reachable under `/api/*` (for example: `/api/auth/login`)
 
 ## Frontend Setup
 
@@ -118,7 +118,7 @@ Open browser console (F12) and run:
 ```javascript
 const token = localStorage.getItem('token');
 const user = JSON.parse(localStorage.getItem('user'));
-fetch('http://localhost:3001/start-communication', {
+fetch('/api/chat/start', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ fetch('http://localhost:3001/start-communication', {
 ### Step 5: Send a Test Message (Optional)
 ```javascript
 const token = localStorage.getItem('token');
-fetch('http://localhost:3001/message', {
+fetch('/api/chat/message', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ You should now see the communication in the dashboard!
 
 ## Verification Checklist
 
-- [ ] Backend running on localhost:3001
+- [ ] API routes working (Vercel: `/api/*`)
 - [ ] Frontend running on localhost:5173
 - [ ] Can register new account
 - [ ] Can login to dashboard
@@ -174,7 +174,7 @@ You should now see the communication in the dashboard!
 ### Can't login
 - Verify password matches what you registered
 - Check browser console for errors
-- Verify backend is running (localhost:3001)
+- Verify API routes are working
 - Check Supabase users table has your record
 
 ### Frontend blank page

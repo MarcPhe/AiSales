@@ -12,7 +12,7 @@
 2. `cp .env.example .env`
 3. Edit `.env` with your Supabase credentials, OpenAI API key, and a custom JWT_SECRET
 4. `npm install`
-5. `npm start` (runs on localhost:3001)
+5. `npm start` (runs locally; in production, Vercel serves API routes under `/api/*`)
 
 ### Step 3: Frontend Setup (1 minute)
 1. `cd frontend`
@@ -30,7 +30,7 @@
 Open your browser console and run:
 ```javascript
 const token = localStorage.getItem('token');
-fetch('http://localhost:3001/start-communication', {
+fetch('/api/chat/start', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ fetch('http://localhost:3001/start-communication', {
 ### 2. Send a Message
 ```javascript
 const token = localStorage.getItem('token');
-fetch('http://localhost:3001/message', {
+fetch('/api/chat/message', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ Refresh the dashboard page - you should see the new communication in the list!
 ## Common Issues
 
 ### CORS Error
-- Make sure backend is running on localhost:3001
+- Make sure your API is reachable (on Vercel this is `/api/*`)
 - Check that axios URLs point to correct endpoints
 
 ### 401 Unauthorized

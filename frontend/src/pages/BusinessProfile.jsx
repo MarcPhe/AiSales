@@ -25,7 +25,7 @@ export default function BusinessProfile({ user, onBack }) {
 
   const fetchBusinessProfile = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/business-profile', {
+      const response = await axios.get('/api/business/profile', {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -58,7 +58,7 @@ export default function BusinessProfile({ user, onBack }) {
     setSuccess('');
 
     try {
-      const response = await axios.post('http://localhost:3001/business-profile', profile, {
+      const response = await axios.post('/api/business/profile', profile, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

@@ -771,7 +771,7 @@ app.get('/embed.js', (req, res) => {
         startPayload.user_id = userId;  // only pass user_id if available (dashboard usage)
       }
       
-      const startResponse = await fetch('http://localhost:3001/start-communication', {
+      const startResponse = await fetch(`http://localhost:${process.env.PORT || 3001}/start-communication`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(startPayload)
@@ -815,7 +815,7 @@ app.get('/embed.js', (req, res) => {
       }
       
       // Send message
-      const response = await fetch('http://localhost:3001/message', {
+      const response = await fetch(`http://localhost:${process.env.PORT || 3001}/message`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
