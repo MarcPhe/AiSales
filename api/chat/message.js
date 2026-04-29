@@ -1,7 +1,7 @@
 import { supabase } from '../lib/db.js';
 import { handleCors } from '../lib/cors.js';
 import OpenAI from 'openai';
-import { generateMockupResponse } from '../../backend/mockup-responses.js';
+import { generateMockupResponse } from '../lib/mockup-responses.js';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 

@@ -1,0 +1,26 @@
+{
+  "name": "ai-sales-bot",
+  "version": "1.0.0",
+  "description": "AI Sales Bot with Vercel deployment",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd frontend && npm run build",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "start": "cd backend && npm start"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.4",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.1.2",
+    "openai": "^4.26.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
