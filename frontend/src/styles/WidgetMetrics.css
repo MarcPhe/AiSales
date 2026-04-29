@@ -1,0 +1,392 @@
+.widget-metrics-page {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.metrics-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.metrics-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.back-btn:hover {
+  background-color: #333333;
+  border-color: #333333;
+}
+
+.metrics-header h2 {
+  margin: 0;
+  font-size: 32px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.metrics-subtitle {
+  color: #808080;
+  font-size: 14px;
+  margin: 0;
+}
+
+.refresh-btn {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.refresh-btn:hover {
+  background-color: #333333;
+  border-color: #333333;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.metric-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e8e8e8;
+  border-left: 4px solid #000000;
+  transition: all 0.2s;
+  display: flex;
+  gap: 15px;
+}
+
+.metric-card:hover {
+  border-left-color: #333333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.metric-icon {
+  font-size: 32px;
+  min-width: 45px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.metric-content {
+  flex: 1;
+}
+
+.metric-label {
+  margin: 0;
+  color: #666666;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.metric-value span:first-child {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.metric-unit {
+  font-size: 12px;
+  color: #999999;
+  font-weight: 400;
+}
+
+.trend {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  color: #666666;
+}
+
+.trend.positive {
+  background-color: #f0f0f0;
+  color: #555555;
+}
+
+/* Chart Section */
+.chart-section {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.chart-section h3 {
+  margin: 0 0 20px 0;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #666666;
+  font-weight: 500;
+}
+
+.legend-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 250px;
+  gap: 15px;
+  padding: 20px 10px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  position: relative;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.bar-set {
+  display: flex;
+  direction: row;
+  gap: 3px;
+  height: 200px;
+  align-items: flex-end;
+}
+
+.bar {
+  flex: 1;
+  min-width: 12px;
+  border-radius: 4px 4px 0 0;
+  transition: all 0.2s;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.bar:hover {
+  opacity: 1;
+}
+
+.bar.conversations {
+  background-color: #000000;
+}
+
+.bar.messages {
+  background-color: #333333;
+}
+
+.bar.ai-messages {
+  background-color: #666666;
+}
+
+.bar-label {
+  font-size: 11px;
+  color: #999999;
+  font-weight: 500;
+}
+
+/* Summary Section */
+.summary-section {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.summary-section h3 {
+  margin: 0 0 20px 0;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.summary-stat {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid #000000;
+  border: 1px solid #e8e8e8;
+  border-left: 3px solid #000000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-stat strong {
+  color: #666666;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-stat span {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* No Data Message */
+.no-data-message {
+  background: #f9f9f9;
+  border: 2px dashed #cccccc;
+  padding: 60px 40px;
+  border-radius: 8px;
+  text-align: center;
+  color: #999999;
+}
+
+.no-data-message p:first-child {
+  font-size: 36px;
+  margin: 0 0 10px 0;
+}
+
+.no-data-message p:last-child {
+  margin: 0;
+  font-size: 14px;
+  color: #999999;
+}
+
+/* Loading & Error */
+.loading,
+.error-message {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  text-align: center;
+  color: #666666;
+  font-size: 16px;
+}
+
+.error-message {
+  color: #d32f2f;
+  margin-bottom: 20px;
+}
+
+.retry-btn {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.retry-btn:hover {
+  background-color: #333333;
+  border-color: #333333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .widget-metrics-page {
+    padding: 20px;
+  }
+
+  .metrics-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .metrics-header h2 {
+    font-size: 24px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bar-chart {
+    height: 200px;
+  }
+
+  .summary-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card {
+    padding: 15px;
+  }
+
+  .metric-value span:first-child {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sales Bot - Embed Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .demo-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .demo-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .demo-content {
+            min-height: 400px;
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            border: 2px dashed #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #999;
+        }
+
+        .feature-grid {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .instructions {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .instructions h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Sales Bot - Embed Test</h1>
+            <p>This page demonstrates the AI Sales Bot chat widget embedded on your website. The chat button appears in the bottom-right corner of the screen. Click it to start a conversation with the AI assistant!</p>
+        </header>
+
+        <div class="demo-section">
+            <h2>Live Demo</h2>
+            <div class="demo-content">
+                <p>👉 Look for the chat button in the bottom-right corner →</p>
+            </div>
+            <div class="instructions">
+                <h3>How to test:</h3>
+                <ol>
+                    <li>Click the chat button (💬) in the bottom-right corner</li>
+                    <li>Type a message and press Enter or click Send</li>
+                    <li>The AI assistant will respond to your message</li>
+                    <li>Your message will be saved to the Communications table</li>
+                    <li>Close the chat by clicking the X button</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>✨ AI Powered</h3>
+                <p>Intelligent responses powered by OpenAI's GPT-4o-mini model</p>
+            </div>
+            <div class="feature">
+                <h3>📊 Data Tracking</h3>
+                <p>All conversations automatically saved to your dashboard</p>
+            </div>
+            <div class="feature">
+                <h3>🎨 Customizable</h3>
+                <p>Easy to embed and customize for any website</p>
+            </div>
+            <div class="feature">
+                <h3>📱 Mobile Ready</h3>
+                <p>Responsive design works on all devices and screen sizes</p>
+            </div>
+            <div class="feature">
+                <h3>🔄 Real-time Sync</h3>
+                <p>Messages instantly synced to your communications dashboard</p>
+            </div>
+            <div class="feature">
+                <h3>🚀 Easy Integration</h3>
+                <p>Just copy and paste a single script tag to your website</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>AI Sales Bot v1.0 - Test Environment</p>
+    </footer>
+
+    <!-- EMBED CODE - Copy this to add the chat widget to any website -->
+    <script>
+        (function() {
+            // Get userId from localStorage or generate a test one
+            const userId = localStorage.getItem('testUserId') || 'test-user-' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('testUserId', userId);
+            
+            // Load embed script with your user ID
+            var script = document.createElement('script');
+            script.src = 'http://localhost:3001/embed.js?userId=' + userId;
+            document.head.appendChild(script);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "http-server . -p 8080 -c-1 --spa index.html",
+    "build": "echo 'No build step needed for AngularJS'",
+    "preview": "http-server . -p 8080 --spa index.html"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  },
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-route": "^1.8.2",
+    "angular-animate": "^1.8.2",
+    "axios": "^1.13.6",
+    "uuid": "^13.0.0"
+  }
+}

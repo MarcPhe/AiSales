@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="salesBotApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Sales Bot</title>
+    <!-- Main stylesheets -->
+    <link rel="stylesheet" href="src/App.css">
+    <link rel="stylesheet" href="src/style.css">
+    <!-- Component stylesheets -->
+    <link rel="stylesheet" href="src/styles/Landing.css">
+    <link rel="stylesheet" href="src/styles/Auth.css">
+    <link rel="stylesheet" href="src/styles/Dashboard.css">
+    <link rel="stylesheet" href="src/styles/BusinessProfile.css">
+    <link rel="stylesheet" href="src/styles/WidgetMetrics.css">
+    <link rel="stylesheet" href="src/styles/ChatWidget.css">
+    <link rel="stylesheet" href="src/styles/EmbedWidget.css">
+  </head>
+  <body>
+    <div ng-view></div>
+
+    <!-- AngularJS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
+    
+    <!-- Axios for HTTP requests -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <!-- UUID for generating IDs -->
+    <script src="https://cdn.jsdelivr.net/npm/uuid@13.0.0/dist/umd/uuid.min.js"></script>
+
+    <!-- App initialization -->
+    <script src="src/js/app.js"></script>
+    
+    <!-- Services -->
+    <script src="src/js/services/authService.js"></script>
+    <script src="src/js/services/apiService.js"></script>
+    
+    <!-- Controllers -->
+    <script src="src/js/controllers/landingController.js"></script>
+    <script src="src/js/controllers/loginController.js"></script>
+    <script src="src/js/controllers/registerController.js"></script>
+    <script src="src/js/controllers/dashboardController.js"></script>
+    <script src="src/js/controllers/businessProfileController.js"></script>
+    <script src="src/js/controllers/widgetMetricsController.js"></script>
+  </body>
+</html>
