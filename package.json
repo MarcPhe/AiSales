@@ -4,9 +4,9 @@
   "description": "AI Sales Bot with Vercel deployment",
   "main": "index.js",
   "scripts": {
-    "build": "cd frontend && npm run build",
+    "build": "echo 'Build step not needed - serving static AngularJS frontend'",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
-    "start": "cd backend && npm start"
+    "start": "cd frontend && npm run start"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.38.4",

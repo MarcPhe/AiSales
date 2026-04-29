@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "http-server . -p 8080 -c-1 --spa index.html",
-    "build": "echo 'No build step needed for AngularJS'",
-    "preview": "http-server . -p 8080 --spa index.html"
+    "build": "echo 'AngularJS frontend - no build needed'",
+    "preview": "http-server . -p 8080 --spa index.html",
+    "start": "http-server . -p 3000 --spa index.html"
   },
   "devDependencies": {
     "http-server": "^14.1.0"
