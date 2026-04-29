@@ -12,7 +12,7 @@ export default function Landing({ onNavigateToLogin, onNavigateToRegister }) {
       {/* Navigation */}
       <nav className="landing-nav">
         <div className="landing-nav-container">
-          <div className="landing-logo">AI Sales Bot</div>
+          <div className="landing-logo">Arc ai</div>
           <div className="nav-buttons">
             <button 
               className="nav-login-btn"
@@ -78,7 +78,7 @@ export default function Landing({ onNavigateToLogin, onNavigateToRegister }) {
       {/* Features Section */}
       <section className="landing-features">
         <div className="landing-container">
-          <h2 className="section-title">Why Choose AI Sales Bot?</h2>
+          <h2 className="section-title">Why Choose Arc ai?</h2>
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">🚀</div>
@@ -243,7 +243,7 @@ export default function Landing({ onNavigateToLogin, onNavigateToRegister }) {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2024 AI Sales Bot. All rights reserved.</p>
+            <p>&copy; 2024 Arc ai. All rights reserved.</p>
           </div>
         </div>
       </footer>
