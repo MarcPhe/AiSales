@@ -1,0 +1,178 @@
+<div class="dashboard" ng-class="{'menu-open': mobileMenuOpen}" ng-click="mobileMenuOpen && $event.target === $event.currentTarget ? closeMobileMenu() : null">
+  <aside class="dashboard-sidebar" ng-class="{'mobile-open': mobileMenuOpen}">
+    <div class="sidebar-header">
+      <h1 class="sidebar-logo">AI Sales</h1>
+      <button 
+        class="mobile-close-btn"
+        ng-click="closeMobileMenu()"
+        title="Close menu"
+      >✕</button>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <button class="nav-item active" title="View all communications">
+        <span class="nav-icon">📋</span>
+        <span>Communications</span>
+      </button>
+      <button 
+        ng-click="handleShowBusinessProfile()"
+        class="nav-item"
+        title="Edit business profile"
+      >
+        <span class="nav-icon">⚙️</span>
+        <span>Business Profile</span>
+      </button>
+      <button 
+        ng-click="handleShowMetrics()"
+        class="nav-item"
+        title="View widget analytics"
+      >
+        <span class="nav-icon">📊</span>
+        <span>Analytics</span>
+      </button>
+      <button 
+        ng-click="closeMobileMenu()"
+        class="nav-item"
+        title="Configure widget settings"
+      >
+        <span class="nav-icon">🔧</span>
+        <span>Settings</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-email">{{user.email}}</div>
+        <div class="user-company" ng-if="user.company_name">{{user.company_name}}</div>
+      </div>
+      <button ng-click="handleLogout()" class="logout-btn">
+        <span class="nav-icon">🚪</span>
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="dashboard-main">
+    <header class="dashboard-header">
+      <div class="header-content">
+        <button 
+          class="hamburger-btn"
+          ng-click="toggleMobileMenu()"
+          title="Toggle menu"
+        >☰</button>
+        <div class="header-left">
+          <h1>Dashboard</h1>
+          <div class="business-badge" ng-if="businessProfile">
+            <img 
+              ng-if="businessProfile.logo_url"
+              src="{{businessProfile.logo_url}}" 
+              alt="Logo" 
+              class="business-logo" 
+            />
+            <span>{{businessProfile.company_name}}</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="business-info-bar" ng-if="businessProfile">
+      <div class="business-info-content">
+        <div class="info-item">
+          <span class="label">Industry:</span>
+          <span class="value">{{businessProfile.industry || 'Not set'}}</span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+          <span class="label">Website:</span>
+          <span class="value">
+            <a 
+              ng-if="businessProfile.website"
+              href="{{businessProfile.website}}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >{{businessProfile.website}}</a>
+            <span ng-if="!businessProfile.website">Not set</span>
+          </span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+          <span class="label">Phone:</span>
+          <span class="value">{{businessProfile.phone || 'Not set'}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-content">
+      <div class="communications-list">
+        <div class="list-header">
+          <h2>Communications</h2>
+          <div class="header-buttons">
+            <button 
+              class="test-chat-btn"
+              ng-class="{'active': showChat}"
+              ng-click="handleChatToggle()"
+              title="Test the AI assistant"
+            >
+              {{showChat ? '✕' : '💬'}} Test Chat
+            </button>
+            <button 
+              class="embed-code-btn"
+              ng-class="{'active': showEmbedCode}"
+              ng-click="handleEmbedToggle()"
+              title="Get embed code for external websites"
+            >
+              &lt;&gt; Embed Code
+            </button>
+          </div>
+        </div>
+        <div ng-if="loading">
+          <p>Loading...</p>
+        </div>
+        <div ng-if="!loading && communications.length === 0">
+          <p>No communications yet</p>
+        </div>
+        <ul ng-if="!loading && communications.length > 0">
+          <li 
+            ng-repeat="comm in communications"
+            ng-click="handleSelectCommunication(comm.id)"
+            ng-class="{'active': selectedCommunication?.id === comm.id}"
+          >
+            <div class="comm-header">
+              <strong>{{comm.latest_message?.content || 'Client: ' + comm.client_id}}</strong>
+              <span class="comm-date">
+                {{comm.created_at | date:'short'}}
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="chat-panel" ng-if="showChat">
+        <div class="chat-panel-header">
+          <h2>Test AI Assistant</h2>
+          <p class="chat-description">Test the chat widget here</p>
+        </div>
+        <!-- ChatWidget component would go here -->
+      </div>
+
+      <div class="embed-code-panel" ng-if="showEmbedCode">
+        <div class="embed-panel-header">
+          <h2>Embed Chat Widget</h2>
+          <p class="embed-description">Copy and paste this code into your website to add the AI chat widget</p>
+        </div>
+        <div class="embed-code-container">
+          <div class="embed-code-box">
+            <pre class="embed-code"><code>{{generateEmbedCode()}}</code></pre>
+            <button 
+              class="copy-embed-btn"
+              ng-class="{'copied': copiedEmbed}"
+              ng-click="handleCopyEmbed()"
+            >
+              {{copiedEmbed ? '✓ Copied!' : '📋 Copy Code'}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
