@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "http-server . -p 8080 -c-1 --spa index.html",
-    "build": "mkdir -p dist && cp -r src index.html dist/ && cp public/* dist/ 2>/dev/null || true",
+    "build": "mkdir -p dist && cp index.html dist/ && cp -r src dist/ && cp -r assets dist/ 2>/dev/null || true",
     "preview": "http-server . -p 8080 --spa index.html",
     "start": "http-server . -p 3000 --spa index.html"
   },
