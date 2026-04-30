@@ -125,7 +125,7 @@ npm run build
 ## API Integration
 
 All API calls go through the `ApiService`. The service expects:
-- API routes (Vercel): `/api/*` (example: `/api/auth/login`)
+- Backend URL: `http://localhost:3001`
 - Authorization header: `Bearer {token}`
 - Responses in JSON format
 
@@ -175,7 +175,7 @@ $scope.profile.company_name
 
 ### Page Blank After Startup
 - Check browser console for errors
-- Ensure API routes are reachable (Vercel: `/api/*`)
+- Ensure backend is running at `http://localhost:3001`
 - Clear browser cache
 
 ### Routing Not Working

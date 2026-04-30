@@ -16,7 +16,7 @@ The code snippet looks like this:
 <script>
   (function() {
     var script = document.createElement('script');
-    script.src = 'https://your-vercel-domain.vercel.app/api/embed?userId=YOUR_USER_ID';
+    script.src = 'http://localhost:3001/embed.js?userId=YOUR_USER_ID';
     document.head.appendChild(script);
   })();
 </script>
@@ -79,7 +79,7 @@ After embedding on your website:
   <script>
     (function() {
       var script = document.createElement('script');
-      script.src = 'https://your-vercel-domain.vercel.app/api/embed?userId=YOUR_USER_ID';
+      script.src = 'http://localhost:3001/embed.js?userId=YOUR_USER_ID';
       document.head.appendChild(script);
     })();
   </script>
@@ -92,7 +92,7 @@ After embedding on your website:
 // In your main App or Layout component
 useEffect(() => {
   const script = document.createElement('script');
-  script.src = 'https://your-vercel-domain.vercel.app/api/embed?userId=YOUR_USER_ID';
+  script.src = 'http://localhost:3001/embed.js?userId=YOUR_USER_ID';
   document.head.appendChild(script);
 }, []);
 ```
@@ -117,10 +117,10 @@ When deploying to production, update the script URL:
 
 ```javascript
 // Change from:
-script.src = 'http://localhost:3000/api/embed?userId=YOUR_USER_ID';
+script.src = 'http://localhost:3001/embed.js?userId=YOUR_USER_ID';
 
 // To:
-script.src = 'https://your-vercel-domain.vercel.app/api/embed?userId=YOUR_USER_ID';
+script.src = 'https://your-production-domain.com/embed.js?userId=YOUR_USER_ID';
 ```
 
 ## Troubleshooting

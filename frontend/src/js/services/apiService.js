@@ -1,10 +1,10 @@
 angular.module('salesBotApp')
   .factory('ApiService', ['$http', 'AuthService', function($http, AuthService) {
-    const API_BASE_URL = '/api';
+    const API_BASE_URL = 'http://localhost:3001';
 
     const service = {
       login: function(email, password) {
-        return $http.post(`${API_BASE_URL}/auth/login`, {
+        return $http.post(`${API_BASE_URL}/login`, {
           email: email,
           password: password
         }).then(function(response) {
@@ -13,7 +13,7 @@ angular.module('salesBotApp')
       },
 
       register: function(email, password, businessName) {
-        return $http.post(`${API_BASE_URL}/auth/register`, {
+        return $http.post(`${API_BASE_URL}/register`, {
           email: email,
           password: password,
           businessName: businessName
@@ -24,7 +24,7 @@ angular.module('salesBotApp')
 
       updateBusinessProfile: function(profileData) {
         const token = AuthService.getToken();
-        return $http.post(`${API_BASE_URL}/business/profile`, profileData, {
+        return $http.post(`${API_BASE_URL}/business-profile`, profileData, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -68,7 +68,7 @@ angular.module('salesBotApp')
 
       getBusinessProfile: function() {
         const token = AuthService.getToken();
-        return $http.get(`${API_BASE_URL}/business/profile`, {
+        return $http.get(`${API_BASE_URL}/business-profile`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

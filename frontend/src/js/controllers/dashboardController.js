@@ -74,7 +74,7 @@ angular.module('salesBotApp')
 <script>
   (function() {
     var script = document.createElement('script');
-    script.src = window.location.origin + '/api/embed?userId=${$scope.user.id}';
+    script.src = 'http://localhost:3001/embed.js?userId=${$scope.user.id}';
     document.head.appendChild(script);
   })();
 </script>`;

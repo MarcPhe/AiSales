@@ -19,10 +19,10 @@ export default function WidgetMetrics({ user, onBack }) {
       setLoading(true);
       
       const [metricsRes, timeseriesRes] = await Promise.all([
-        axios.get('/api/widget-metrics', {
+        axios.get('http://localhost:3001/widget-metrics', {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get('/api/widget-metrics-timeseries', {
+        axios.get('http://localhost:3001/widget-metrics-timeseries', {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);

@@ -143,18 +143,18 @@ VITE_API_URL=https://your-api.herokuapp.com
 
 Update axios calls:
 ```javascript
-// When deploying to Vercel with Serverless Functions, use relative /api routes.
-axios.post('/api/auth/login', { ... })
+const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+axios.post(`${apiUrl}/login`, {...})
 ```
 
 **Option 2: Direct Update**
 In each component that calls the API:
 ```javascript
 // Change from:
-axios.post('/api/auth/login', ...)
+axios.post('http://localhost:3001/login', ...)
 
 // To:
-axios.post('https://your-vercel-domain.vercel.app/api/auth/login', ...)
+axios.post('https://your-api.herokuapp.com/login', ...)
 ```
 
 ## Database Considerations
